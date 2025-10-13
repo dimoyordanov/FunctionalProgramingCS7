@@ -1,0 +1,5 @@
+(define (mod a b) (if (< a b) a (mod (- a b) b)))
+(define (last-digit a) (mod a 10))
+(define (first-digit a) (if (< a 10) a (first-digit (/ (- a (mod a 10)) 10))))
+(define (remove-last a) (if (< a 10) 0 (+ (* 10 (remove-last (/ (- a (mod a 10)) 10))) (mod a 10) )))
+(define (palindrome? x) (if (< x 10) #t (if (= (last-digit x) (first-digit x)) (palindrome? (/ (- (remove-last x) (mod x 10)) 10)) #f )))
