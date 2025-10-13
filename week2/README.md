@@ -16,7 +16,7 @@
 
 Пример за коректно изписване
 <pre id="code1" class="prettyprint lang-lisp">
-    (define people-conut 3) ;; people count
+    (define people-count 3) ;; people count
 </pre>
 
 ### Предикати
