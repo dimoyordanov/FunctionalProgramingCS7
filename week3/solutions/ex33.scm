@@ -1,0 +1,10 @@
+(define (and a b) (if a b #f))
+(define (or a b) (if a #t b))
+(define (not a) (if a #f #t))
+(define (imply a b) (or (not a) b))
+
+(define (forall? p l) (= (len l) (len (filter p l))))
+(define (exists? p l) (> (len (filter p l)) 0))
+(define (existsUnique? p l) (= (len (filter p l)) 1))
+(define (unique? l) (forall? (lambda (x) (existsUnique? (lambda (b) (= b x)) l)) l))
+(define (contains? l a) (exists? (lambda (x) (= x a)) l))
