@@ -1,0 +1,5 @@
+(define (quicksort l)
+  (define left (filter (lambda (x) (< x (car l))) l ))
+  (define right (filter (lambda (x) (> x (car l))) l))
+  (if (null? l) '() (if (null? (cdr l)) (list (car l)) (append2 (append2 (quicksort left) (list (car l))) (quicksort right)) ))
+)
