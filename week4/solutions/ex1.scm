@@ -1,0 +1,8 @@
+(define (flatten deep)
+  (if (null? deep) '()
+      (if (list? (car deep))
+          (append (flatten (car deep)) (flatten (cdr deep)))
+          (cons (car deep) (flatten (cdr deep)))
+          )
+  )
+)
