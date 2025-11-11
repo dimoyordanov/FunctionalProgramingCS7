@@ -1,0 +1,6 @@
+(define (filter stream p)
+  (if (p (head stream))
+      (cons (head stream) (lambda () (filter (tail stream) p)))
+      (filter (tail stream) p)
+      )
+)
