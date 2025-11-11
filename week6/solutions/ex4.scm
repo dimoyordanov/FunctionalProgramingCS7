@@ -1,0 +1,6 @@
+(define (limit stream n)
+  (if (or (null? n) (= 0 n))
+          '()
+          (cons (head stream) (limit (tail stream) (- n 1)))
+      )
+  )
