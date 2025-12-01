@@ -1,14 +1,17 @@
-data List = List Int List | Nil
+factoriel :: Integer -> Integer
+factoriel 0 = 1
+factoriel n = n * factoriel (n-1)
 
-printList :: List -> String
-printList Nil = ""
-printList (List a Nil) = show a
-printList (List a b) = show a ++ "->" ++ printList b
+fibonachi :: Integer -> Integer
+fibonachi 0 = 0
+fibonachi 1 = 1
+fibonachi n = fibonachi (n-1) + fibonachi (n-2)
 
-addElement :: List -> Int -> List
-addElement = flip List
+fermatNumber :: Integer -> Integer
+fermatNumber n = l 2 (l 2 n) + 1
+        where
+            l n 0 = 1
+            l n m = n * l n (m-1)
 
-appendList :: List -> List -> List
-appendList Nil = id 
-appendList (List a b) = List a.appendList b
-
+-- >>> fermatNumber 7
+-- 340282366920938463463374607431768211457
